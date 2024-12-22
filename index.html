@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>index</title>
+	<link rel="stylesheet" type="text/css" href="estilos.css" />
+	<style>
+        @property --blur {
+  syntax: "<length>";
+  initial-value: 0;
+  inherits: true;
+}
+@property --brightness {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: true;
+}
+@property --rotationY {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+:root {
+  --shape: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  --color-primary: #f4e8f1;
+  --color-secondary: #75d8ee;
+  --color-tertiary: #deee75;
+  --color-quaternary: #9375ee;
+  --color-surface: #131212;
+}
+.container {
+  position: relative;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  animation: rotate 6s linear infinite;
+  transform: rotate3d(0, 1, 0, var(--rotationY));
+  --distance: 3vmin;
+}
+.left,
+.right {
+  position: absolute;
+  width: calc(var(--distance) * 4);
+  height: 28vmin;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(0.3rem);
+}
+.right.top {
+  transform: rotateY(90deg) rotateX(45deg) translateZ(14vmin);
+}
+.right.bottom {
+  transform: rotateY(-90deg) rotateX(45deg) translateZ(-14vmin);
+}
+.left.bottom {
+  transform: rotateY(90deg) rotateX(45deg) translateZ(-14vmin);
+}
+.left.top {
+  transform: rotateY(90deg) rotateX(-45deg) translateZ(-14vmin);
+}
+.front,
+.back {
+  position: absolute;
+  transform-style: preserve-3d;
+  width: 40vmin;
+  aspect-ratio: 1;
+  background: rgba(5, 5, 5, 0.1);
+  backdrop-filter: blur(var(--blur)) brightness(var(--brightness)) invert(1) saturate(0.9);
+  clip-path: var(--shape);
+  transform: translateZ(calc(var(--distance) * 2));
+  box-shadow: inset 0 0 10rem rgba(255, 255, 5, 0.05);
+}
+.front:after {
+  position: absolute;
+  inset: 1rem;
+  clip-path: var(--shape);
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0.8;
+  display: grid;
+  place-items: center;
+  content: "☮️";
+  transform-style: preserve-3d;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.back {
+  transform: translateZ(calc(var(--distance) * 1));
+  box-shadow: inset 1rem 0 20rem rgba(222, 5, 25, 0.3);
+}
+.back:nth-child(2) {
+  transform: translateZ(calc(var(--distance) * 0));
+  box-shadow: inset 1rem 4rem 5rem rgba(2, 55, 205, 0.35);
+}
+.back:nth-child(3) {
+  transform: translateZ(calc(var(--distance) * -1));
+  box-shadow: inset 4rem 0rem 5rem rgba(255, 200, 2, 0.3);
+}
+.back:nth-child(4) {
+  transform: translateZ(calc(var(--distance) * -2));
+  box-shadow: inset -1rem -4rem 5rem rgba(25, 5, 255, 0.2);
+}
+.back:nth-child(4):after {
+  position: absolute;
+  inset: 1rem;
+  clip-path: var(--shape);
+  background: rgba(255, 255, 255, 0.05);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0.6;
+  display: grid;
+  place-items: center;
+  content: "☮️";
+  z-index: -1;
+}
+@keyframes rotate {
+  from {
+    --rotationY: 0deg;
+    --blur: 0.2vmin;
+    --brightness: 1.2;
+  }
+  15%, 35%, 65%, 85% {
+    --blur: 0.2vmin;
+    --brightness: 1.2;
+  }
+  25%, 75% {
+    --blur: 5vmin;
+    --brightness: 3.35;
+  }
+  to {
+    --rotationY: 360deg;
+    --blur: 0.2vmin;
+    --brightness: 1.2;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+   main{
+       display: flex;
+       margin: 1%;
+       background-color: #32CD32;
+       flex-direction: row;
+       justify-content: center;
+       flex-wrap: wrap;
+       padding: 20px;
+       gap: 1rem;
+   }
+   main>section{
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    place-items: center;
+    background: url("imagenes/fondo2.jpg")
+    no-repeat center center,
+    var(--color-surface);
+    background-size: 100%;
+    color: var(--color-primary);
+    font-family: "Helvetica Neue", monospace;
+    font-weight: bold;
+    font-size: 20vmin;
+    margin: 0;
+    perspective: 32rem;
+    position: relative;
+    overflow: hidden;
+   }
+   main>aside,main>article{
+    flex: 1 1 45%;
+    margin: 2%;
+    max-width: 500px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   }
+   main>aside>figure, main>article>figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+   main>aside>figure>img,main> article>figure>img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+
+   }
+   main>aside>p,main>article>p{
+       margin: 2%;
+       text-align: justify;
+       font-size: 2vw;
+       line-height: 1.6;
+       text-shadow: 1px 1px 1px #808000;
+   }
+   @media (max-width: 849px){
+       main{
+           flex-direction: column;
+           align-items: center;
+           padding: 10px;
+       }
+       main>aside,main>article{
+           flex: 1 1 100%;
+           max-width: none;
+       }
+       main>aside>p,main> article>p{
+           font-size: 4vw;
+           line-height: 1.6;
+       }
+       figure>img {
+           max-width: 100%;
+           height: auto;
+           border-radius: 5px;
+       }
+   }
+</style>
+</head>
+
+<body>
+<header>
+<figure>
+	<img src="imagenes/logo.png" alt="logo Bob Marley" title="logo Bob Marley" />
+</figure>
+    <h1 class="title">Unity - Reggae</h1>
+ <div>
+  <form>
+    <label>Nombre:</label>
+    <input type="text" name="nombre" />
+    <br /><br />
+    <label>Contraseña:</label>
+    <input type="password" name="password"><br />
+    <button type="submit"><a href="formulario2.html">Enviar</button></a>
+  </form>
+</div>
+</header>
+
+<nav>
+	<ul>
+ 	 <li><a href="index.html">Inicio</a></li>
+ 	 <li><a href="origen.html">Origen y raices del Reaggae</a></li>
+ 	 <li><a href="figuras.html">Figuras claves</a></li>
+ 	 <li><a href="letras.html">Letras y mensages</a></li>
+ 	 <li><a href="actualidad.html">Reggae en la actualidad</a></li>
+ 	 <li><a href="recursos.html">Recursos y bibliografía</a></li>
+     <li><a href="formulario2.html">Formulario</a></li>
+     <li><a href="presentacion.html">Presentación</a></li>
+ 	</ul>
+</nav>
+<main>
+ <section>
+    <div class="container">
+  <div class="back">
+  </div>
+  <div class="back"></div>
+  <div class="back"></div>
+  <div class="back"></div>
+  <div class="front"></div>
+
+  <div class="right top">
+    <figure>
+      <img src="imagenes/reggae.jpg" />
+    </figure>
+  </div> 
+  <div class="right bottom"></div>
+
+  <div class="left top">
+    <figure>
+      <img src="imagenes/leon.jpg" />
+    </figure>
+  </div>
+
+  <div class="left bottom"></div>
+</div>
+ </section>
+ <aside>
+     <p>
+     La página tiene el propósito de crear una plataforma web accesible y educativa que comparta la fascinante historia y evolución del reggae, desde sus raíces en Jamaica hasta su impacto en el mundo. El reggae nació en la década de 1960, combinando ritmos del ska, rocksteady y música folk jamaicana. Desde el principio, sus letras han reflejado las luchas y esperanzas de la gente, convirtiéndose en un reflejo auténtico de la vida en Jamaica. Figuras como Bob Marley no solo llevaron el reggae a nuevos horizontes, sino que también lo transformaron en un poderoso medio para transmitir mensajes de paz, amor y resistencia.
+    </p>
+    <figure>
+        <a href="https://youtu.be/1ti2YCFgCoI?si=U9Bl_S6RJvVscAxf" target="_blanc"><img src="imagenes/section.jpg" alt="radio antigua" title="radio antigua" /></a>
+    </figure> 
+ </aside>
+ <article>
+ 	<figure>
+ 		<a href="https://www.youtube.com/watch?v=p1SInyvHX5E" target="_blanc"><img src="imagenes/article.jpg" alt="grupo de música"  title="grupo de música" /></a>
+ 	</figure>
+ 	<br />
+ 	<p>
+ 	 La plataforma busca resaltar estos valores y la profunda influencia del reggae en la conciencia social y la cultura a nivel global. Este género ha sido un altavoz para temas como la injusticia, la desigualdad y los derechos humanos, resonando con personas de diferentes orígenes. Además, será un recurso valioso para estudiantes, músicos, historiadores y todos los que disfrutan de la música. Su público incluye a los apasionados del reggae, investigadores de la cultura musical y quienes sienten curiosidad por los movimientos culturales y sociales, ofreciéndoles una oportunidad única para explorar y conectar con la riqueza de este influyente género.
+ 	</p>
+ </article>
+</main>
+<footer>
+	<h2>Síguenos en nuestras redes sociales:</h2>
+  <article>
+	<figure>
+	 <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/reggae.official/%3Fhl%3Des&ved=2ahUKEwiDv7XN_8KJAxUQVaQEHSTxN4AQFnoECBkQAQ&usg=AOvVaw10oz1HSMq4zDktm7idfDhu" target="_blanc"><img src="imagenes/insta.jpg" alt="simbolo de instagram" title="simbolo de instagram" /></a>
+	</figure>
+	<figure>
+	 <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://twitter.com/Reggaeton_Times%3Fref_src%3Dtwsrc%255Egoogle%257Ctwcamp%255Eserp%257Ctwgr%255Eauthor&ved=2ahUKEwiHzZeogMOJAxXcQ6QEHVB7Hb8Q6F56BAgTEAE&usg=AOvVaw0tnZL1IcqT5p9lqi7-0Bbe" target="_blanc"><img src="imagenes/x.jpg" alt="simbolo de x" title="simbolo de x" /></a>
+	</figure>
+	<figure>
+	 <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/ILoveReggaetonclassix/%3Flocale%3Des_ES&ved=2ahUKEwjB54fUgMOJAxXLVKQEHZo3GcMQFnoECCYQAQ&usg=AOvVaw1u1rTY_vS3pxo3KPbjlBMt" target="_blanc"><img src="imagenes/face.jpg" alt="simbolo de facebook"  title="simbolo de facebook" /></a>
+	</figure> 
+ </article> 
+ <a href="#"><button >Subir</button></a>
+</footer>
+</body>
+</html>

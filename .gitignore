@@ -1,0 +1,17 @@
+# Ignorar archivos innecesarios
+.DS_Store
+.cache/
+.idea/
+.zsh_sessions/
+.zsh_history
+Applications/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+
+# Ignorar archivos ocultos y carpetas fuera del proyecto
+../../../*
+
+

@@ -1,0 +1,256 @@
+.wheel {
+  --inner-offset: clamp(2rem, 3vw, 3rem); /* Offset for after pseudo-element */
+  --title-offset: -40px;
+  
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: min(calc(100% - 2rem), 500px);
+  aspect-ratio: 1;
+}
+.wheel > li:nth-child(1){
+  --title-rotate: -2deg;
+  --clip-1: polygon( 50% 50%, 50% 0%, 100% 0%, 100% 0%,  100% 0%,   100% 0%,   100% 0%,   100% 0%,   100% 0%,   100% 0%);
+  --clip-2: polygon( 50% 50%, 50% 0%, 100% 0%, 100% 50%, 100% 50%,  100% 50%,  100% 50%,  100% 50%,  100% 50% , 100% 50%);
+  --clip-3: polygon( 50% 50%, 50% 0%, 100% 0%, 100% 100%,100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);
+  --clip-4: polygon( 50% 50%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%,  50% 100%,  50% 100%,  50% 100%,  50% 100%);
+  --clip-5: polygon( 50% 50%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%,  0% 100%,   0% 100%,   0% 100%,   0% 100%);
+  --clip-6: polygon( 50% 50%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%,  0% 100%,   0% 50%,    0% 50%,    0% 50%);
+  --clip-7: polygon( 50% 50%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%,  0% 100%,   0% 50%,    0% 0%,     0% 0%);
+  --clip-8: polygon( 50% 50%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%,  0% 100%,   0% 50%,    0% 0%,     50% 0%);
+}
+.wheel > li:nth-child(2){
+  --title-rotate: 43deg;
+  --clip-1: polygon( 50% 50%, 100% 0%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%);
+  --clip-2: polygon( 50% 50%, 100% 0%, 100% 50%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%);
+  --clip-3: polygon( 50% 50%, 100% 0%, 100% 50%,100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%  );
+  --clip-4: polygon( 50% 50%, 100% 0%, 100% 50%,100% 100%, 50% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100% );
+  --clip-5: polygon( 50% 50%, 100% 0%, 100% 50%,100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 50%, 0% 50%, 0% 50%);
+  --clip-6: polygon( 50% 50%, 100% 0%, 100% 50%,100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 0% 0%, 0% 0%);
+  --clip-7: polygon( 50% 50%, 100% 0%, 100% 50%,100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 50% 0%);
+  --clip-8: polygon( 50% 50%, 100% 0%, 100% 50%,100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%);
+}
+.wheel > li:nth-child(3) {
+  --title-rotate: 88deg;
+  --clip-1: polygon(50% 50%, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);
+  --clip-2: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%);
+  --clip-3: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%);
+  --clip-4: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%);
+  --clip-5: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  --clip-6: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 50% 0%, 50% 0%);
+  --clip-7: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 0%);
+  --clip-8: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%);
+}
+.wheel > li:nth-child(4) {
+  --title-rotate: 132deg;
+  --clip-1: polygon(50% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%);
+  --clip-2: polygon(50% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%);
+  --clip-3: polygon(50% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%);
+  --clip-4: polygon(50% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  --clip-5: polygon(50% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  --clip-6: polygon(50% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 0%, 100% 0%);
+  --clip-7: polygon(50% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 50%);
+  --clip-8: polygon(50% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%);
+}
+.wheel > li:nth-child(5) {
+  --title-rotate: 177deg;
+  --clip-1: polygon(50% 50%, 50% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%);
+  --clip-2: polygon(50% 50%, 50% 100%, 0% 100%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%);
+  --clip-3: polygon(50% 50%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  --clip-4: polygon(50% 50%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  --clip-5: polygon(50% 50%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  --clip-6: polygon(50% 50%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 50%, 100% 50%);
+  --clip-7: polygon(50% 50%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%,100% 100%,100% 100%);
+  --clip-8: polygon(50% 50%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%,100% 100%,50% 100% );
+}
+.wheel > li:nth-child(6) {
+  --title-rotate: 222deg;
+  --clip-1: polygon(50% 50%, 0% 100%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%);
+  --clip-2: polygon(50% 50%, 0% 100%, 0% 50%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  --clip-3: polygon(50% 50%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  --clip-4: polygon(50% 50%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  --clip-5: polygon(50% 50%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 50%, 100% 50%, 100% 50%);
+  --clip-6: polygon(50% 50%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 100% 100%, 100% 100%);
+  --clip-7: polygon(50% 50%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 50% 100%);
+  --clip-8: polygon(50% 50%, 0% 100%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%);
+}
+.wheel > li:nth-child(7) {
+  --title-rotate: 265deg;
+  --clip-1: polygon(50% 50%, 0% 50%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  --clip-2: polygon(50% 50%, 0% 50%, 0% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  --clip-3: polygon(50% 50%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  --clip-4: polygon(50% 50%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%);
+  --clip-5: polygon(50% 50%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);
+  --clip-6: polygon(50% 50%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%);
+  --clip-7: polygon(50% 50%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 100%);
+  --clip-8: polygon(50% 50%, 0% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);
+}
+
+.wheel > li:nth-child(8) {
+  --title-rotate: 311deg;
+  --clip-1: polygon(50% 50%, 0% 0%, 50% 0%, 50% 0%,  50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  --clip-2: polygon(50% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  --clip-3: polygon(50% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50% );
+  --clip-4: polygon(50% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%   );
+  --clip-5: polygon(50% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%  ); 
+  --clip-6: polygon(50% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 100%, 0% 100%   );
+  --clip-7: polygon(50% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 50%  );
+  --clip-8: polygon(50% 50%, 0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%  );
+} 
+
+.wheel > li {
+  --title-rotate-hover: calc(var(--title-rotate) - 25deg);
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.wheel > li .hoverable,
+.wheel > li::after {
+  content: '';
+  position: absolute;
+  inset: var(--inset, 0);
+  border-radius: inherit;
+  background-image: var(--img);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  clip-path: var(--clip-1);
+  transition: opacity,filter,clip-path;
+  transition-duration: var(--trans-duration);
+  transition-timing-function: ease-in-out;
+  filter: var(--hover-filter);
+}
+
+.wheel > li::after {
+  --inset: var(--inner-offset);
+  background-size: calc(100% + var(--inset) * 2);
+  animation: var(--animation-after);
+}
+
+.wheel > li .hoverable {
+  cursor: pointer; 
+  z-index: 5;
+}
+.wheel:has(:hover){
+  --hover-filter: sepia(1);
+}
+
+.wheel > li > svg {
+    position: absolute;
+    inset: var(--title-offset);
+    font-size: .25em;
+    z-index: 20;
+    transform-origin: center;
+    text-transform: uppercase;
+    transition: inset 300ms ease-in-out var(--title-trans-delay);
+    color: white;
+    pointer-events: none;
+}
+
+.wheel > li svg g {
+    transition: all 300ms ease-in-out var(--title-trans-delay);
+    transform-origin: center;
+    transform: rotate(var(--title-rotate-hover,0));
+    opacity: var(--title-opacity,0);
+ }
+
+
+<!-- /* HOVER - we hover on the "outer" clippped section*/
+.wheel > li:has(.hoverable:hover) {
+  z-index: 10;
+  transition: z-index 0s;
+  --hover-filter: sepia(0);
+  --title-opacity: 1;
+  --title-trans-delay: calc(var(--trans-duration) - 150ms);
+  /*--title-offset: -40px;*/
+  --title-rotate-hover: var(--title-rotate);
+  --animation-after: reveal var(--trans-duration) ease forwards;
+}
+/* -->
+.wheel > li::after {
+   --animation-after: hide var(--speed-hide) ease forwards;
+  filter: blur(10px);
+}
+*/
+
+@keyframes reveal {
+  0%  { clip-path: var(--clip-1); }
+  14% { clip-path: var(--clip-2); }
+  28% { clip-path: var(--clip-3); }
+  42% { clip-path: var(--clip-4); }
+  56% { clip-path: var(--clip-5); }
+  70% { clip-path: var(--clip-6); }
+  84% { clip-path: var(--clip-7); }
+  100%{ clip-path: var(--clip-8); }
+}
+
+@keyframes hide {
+  0%  { clip-path: var(--clip-8); }
+  14% { clip-path: var(--clip-7); }
+  28% { clip-path: var(--clip-6); }
+  42% { clip-path: var(--clip-5); }
+  56% { clip-path: var(--clip-4); }
+  70% { clip-path: var(--clip-3); }
+  84% { clip-path: var(--clip-2); }
+  100%{ clip-path: var(--clip-1); }
+}
+
+:root {
+  --trans-duration: 500ms;
+  --speed-hide: 2050ms;
+}
+
+/* general styling */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --clr-bg: #222;
+  --clr-primary: #f5f5f5;
+  --clr-secondary: #075985; 
+}
+body>main>article {
+  background-color: var(--clr-bg); 
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.9rem, 2.5vw,1.4rem);
+  color: var(--clr-primary);
+  padding: 1%;
+  background-image: radial-gradient(circle, rgba(175, 208, 84, .25) 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 40px 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 32px;
+  height: 32px;
+}
+
+/*
+.wheel:has(:hover) li:not(:hover)::after{
+  animation: hide var(--speed-hide) ease forwards;
+  filter: blur(4px);
+  transition: z-index 300s 500ms; 
+}
+*/
+  /*
+.wheel > li:has(.hoverable:hover)::after {
+animation: reveal var(--trans-duration) ease forwards;
+ 
+}
+*/

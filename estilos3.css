@@ -1,0 +1,189 @@
+/*Genericos*/
+img,{
+	width: 100%;
+}
+body{ 
+	width: 100%;
+	margin: 1;
+	background: #FFD3A5;
+	font-family: Raleway, sans-serif;
+}
+body{
+	display: grid;
+	font-family: Raleway, sans-serif;	
+	grid-template-columns: 20% 20%  auto auto;
+			grid-template-areas: 
+			'h h h h'
+			'n n n n'
+			'm m a a'
+			'm m ar ar'
+			's s s s'
+			'f f f f'
+			;
+}
+	@media screen and (max-width: 700px){
+		header {
+		flex-direction: column; 
+		align-items: center; 
+		gap: 10px;
+		padding: 10px;
+		width: 100%; 
+		box-sizing: border-box;
+		margin: 0;
+	    }
+	    header>h1{
+		font-size: 7vw; 
+		white-space: normal; 
+		text-align: center;
+		}
+		header>div{
+		width: 90%;
+		max-width: 450px;
+		margin: 0 auto; 
+		box-sizing: border-box;
+	    }
+
+	}
+/*Aqui empieza el header*/
+header>.fancy-wipe {
+	font-size: 8vw;
+	position: relative;
+	--duration: 4.5s;
+	--easing: cubic-bezier(0.45, 0, 0.55, 1);
+	--colors: linear-gradient(
+		90deg,
+		#fff89a,
+		#cdf2ca,
+		#a2cdcd,
+		#d1e8e4,
+		#cab8ff,
+		#ff7878,
+		#ffc898
+	);
+}
+header>.text {
+	color: white;
+	animation: wipe-in var(--duration) infinite var(--easing);
+	mask: linear-gradient(to right, white, white 45%, black, 55%, black);
+  	mask-composite: exclude;
+	mask-mode: luminance;
+	mask-size: 300% 100%;
+	mask-position: 100% 0px;
+}
+.wipe-in {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 30%;
+	background-image: var(--colors);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: wipe-in var(--duration) infinite var(--easing);
+	mask: linear-gradient(to right, black, black 45%, white 50%, black 52.5%, black);
+  	mask-composite: exclude;
+	mask-mode: luminance;
+	mask-size: 300% 100%;
+	mask-position: 100% 0px;
+}
+.blur-in {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 30%;
+	background-image: var(--colors);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: wipe-in var(--duration) infinite var(--easing);
+	mask: linear-gradient(to right, black, black 45%, white 52.5%, black 55%, black);
+  	mask-composite: exclude;
+	mask-mode: luminance;
+	mask-size: 300% 100%;
+	mask-position: 100% 0px;
+	filter: blur(10px);
+}
+@keyframes wipe-in {
+	100% {
+		mask-position: 0px 0px;
+	}
+}
+/*Aqui empieza el header*/
+header{
+    display: flex;
+    grid-area: h;
+    gap: 40px;  
+	justify-content: space-between; 
+	align-items: center; 
+	width: 100%; 
+	padding: 20px;
+	background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 33%, #f3a204 66%, #f3ea04 100%);
+}
+header>figure{	
+	margin-left: 1%; 
+	margin-right: 20px;
+	flex: 2;
+}
+header>figure>img{
+	max-width: 120%;
+	height: auto;
+}
+header>h1{
+	flex: 1;
+    text-align: center;
+    font-size: 3vw;
+}
+header>div{
+	border: 3px solid #ffff44;
+	background-color: #888833;
+	border-radius: 10px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+	padding: 2%;
+	width: 100%;
+	margin-right: 1%; 
+}
+header>div>form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 90%;
+}
+header>div>form>label{
+    width: 100%;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+header>div>form>input[type="text"],
+header>div>form>input[type="password"]{
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ffff44;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+header>div>form>button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ECD80E;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+header>div>form>button:hover{
+    background-image: radial-gradient( circle 331px at 1.4% 52.9%,  rgba(255,236,2,1) 0%, rgba(255,223,2,1) 33.6%, rgba(255,187,29,1) 61%, rgba(255,175,7,1) 100.7% );
+    color: #fff;
+}
+nav,main,footer{
+	padding: 2%;
+	margin: 1%;
+	border: 1px solid #fff;
+}

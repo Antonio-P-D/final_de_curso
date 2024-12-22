@@ -1,0 +1,165 @@
+/*Aqui se realizan los genéricos*/
+figure>imag{
+    width: 100%;
+}
+body{
+    font-family: calibri, helvetica, arial, sans-serif;
+    background: linear-gradient(to bottom, #3a5d23, #d1d700, #ff2b2b);
+    color: #333;
+}
+a,li{
+    text-decoration: none;
+    list-style-type: none;
+    color: #32CD32;
+    vertical-align: middle;
+}
+/*Aquí empieza el header*/
+header{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1%;
+    align-items: center;
+    background-color: #000000CC;
+    color: #000;
+}
+header>figure{
+    flex: 1;
+    margin-left: 8%;
+}
+header>h1{
+    flex: 3;
+    margin-bottom: 20px;
+    align-items: center;
+    font-family: 'Verdana', sans-serif;
+    font-size: 4vw;
+    color: #FFD700;
+    text-shadow: 2px 2px 6px #FF0000;
+}
+header>h1:first-letter {
+    color: #32CD32;
+}
+header>h1:last-letter {
+    color: #FF0000;
+}
+header>div{
+    border: 2px solid #32CD32;
+    text-align: center;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    width: 30%;
+    margin: auto;
+}
+header>div>form>label{
+    display: inline-block;
+    min-width: 100px;
+    margin: 1%;
+    color: #32CD32;
+    font-weight: bold;
+}
+header>div>form>input[type="text"],
+header>div>form>input[type="password"] {
+    width: 80%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px solid #32CD32;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+header>div>form>button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #32CD32;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+header>div>form>button>a{
+    color: #000;
+    font-weight: bold;
+}
+header>div>form>button:hover{
+    background-color: #28a745;
+}
+header>div>form>button>a:hover{
+    background-color: #f00;
+    color: #fff;
+}
+
+/*Aquí empieza el nav*/
+nav{
+   margin: 1%;
+   background-image: url(imagenes/nav.jpg);
+   padding: 2%;
+}
+nav>ul{
+   display: flex;
+   justify-content: center; 
+   gap: 2%; 
+   list-style-type: none;
+   padding: 0; /* Elimina el padding predeterminado */
+   margin: 0;
+}
+nav>ul>li{
+   font-size: 2vw;
+   padding: 0; /* Asegura que no haya padding extra */
+   margin: 0;
+}
+nav>ul>li>a:hover {
+    color: #fff;
+    border-bottom: 2px solid #ffdd57;
+}
+
+/*Aquí empieza el footer*/
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1%;
+    background-image: url(imagenes/footer.jpg);
+    background-size: cover;            
+    background-repeat: no-repeat;
+    background-position: center;
+}
+footer>h2{
+    margin-top: 1%;
+    font-size: 3.5vw;
+    color: #fff;
+    text-shadow: 5px 5px 6px #000;
+}
+footer>article{
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center;     
+    align-items: center; 
+    gap: 20px; 
+    width: 100%;
+    margin-top: 10px;
+}
+footer>article>figure{
+    margin-bottom: 0%; 
+    margin-top: 200px;          
+}
+footer>a{
+    align-self: flex-end;
+    margin-top: 20px;
+    text-decoration: none;
+}
+footer>a>button{
+    background-image: url(imagenes/boton.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 20px 20px;
+    font-size: 3vw;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 100%;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+footer>a>button:hover {
+    background-color: #ff2b2b;
+    color: #fff;  
+}
