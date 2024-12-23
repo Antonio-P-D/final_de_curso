@@ -10,22 +10,28 @@
 			background-image: url(imagenes/hojas.jpg);
 			background-repeat: no-repeat;
 			background-size: cover;
-			border-radius: 5%;
 		}
 		main>section{
 			display: flex;
+			flex-wrap: wrap; 
 			text-align: justify;
 			align-items: center;
 			font-size: 2vw;
 			margin: 1%;
+			justify-content: space-between;
 		}
 		main>section>p{
-			margin: 2%;
 			padding: 1.5%;
 			color: #fff;
 			line-height: 1.6;
 			background-color: #00000080;
-      border-radius: 10%; 
+      border-radius: 10%;
+      min-width: 250px;
+      max-width: 700px;
+		}
+		main>section>figure>img{
+			min-width: 320px;
+			text-align: center;
 		}
 	</style>
 </head>
